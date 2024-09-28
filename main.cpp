@@ -4,8 +4,26 @@
  *  Deve essere possibile scrivere e leggere da disco l'elenco delle attività.*/
 
 #include <iostream>
+#include "Todolist.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    Todolist list;
+
+    //add activities
+    list.addActivity(Activity("Fare la spesa", "comprare frutta e verdura"));
+    list.addActivity(Activity("Studiare C++", "completare il capitolo sulla gestione dei file"));
+
+    //save list on disco
+    list.saveOnDisc("todolist.txt");
+
+    //print list
+    cout << "Activities list: " << endl;
+    list.print();
+
+    //load from disc and print
+    cout << "\nLoading list from disc..." << endl;
+    list.downloadFromDisc("todolist.txt");
+    list.print();
+
     return 0;
 }
