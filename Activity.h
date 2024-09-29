@@ -21,7 +21,7 @@ public:
     //getters
     const string &getTitle() const;
     const string &getDescription() const;
-    bool isComplete() const;
+    bool isCompleted() const;
 
     //setters
     void setComplete(bool complete);

@@ -15,7 +15,7 @@ const string &Activity::getDescription() const {
     return description;
 }
 
-bool Activity::isComplete() const {
+bool Activity::isCompleted() const {
     return complete;
 }
 
