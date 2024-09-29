@@ -75,7 +75,7 @@ _Availability_: Linux, Windows, Mac; since version 1.1.0.
 ## Predicate Assertions for Better Error Messages ##
 
 Even though Google Test has a rich set of assertions, they can never be
-complete, as it's impossible (nor a good idea) to anticipate all the scenarios
+completed, as it's impossible (nor a good idea) to anticipate all the scenarios
 a user might run into. Therefore, sometimes a user has to use `EXPECT_TRUE()`
 to check a complex expression, for lack of a better macro. This has the problem
 of not showing you the values of the parts of the expression, making it hard to
@@ -690,7 +690,7 @@ fail. Currently, the flag's default value is `"fast"`. However, we reserve the
 right to change it in the future. Therefore, your tests should not depend on
 this.
 
-In either case, the parent process waits for the child process to complete, and checks that
+In either case, the parent process waits for the child process to completed, and checks that
 
   1. the child's exit status satisfies the predicate, and
   1. the child's stderr matches the regular expression.
@@ -1366,7 +1366,7 @@ TYPED_TEST(FooTest, DoesBlah) {
 TYPED_TEST(FooTest, HasPropertyA) { ... }
 ```
 
-You can see [`samples/sample6_unittest.cc`](../samples/sample6_unittest.cc) for a complete example.
+You can see [`samples/sample6_unittest.cc`](../samples/sample6_unittest.cc) for a completed example.
 
 _Availability:_ Linux, Windows (requires MSVC 8.0 or above), Mac;
 since version 1.1.0.
@@ -1448,7 +1448,7 @@ can write that type directly without `::testing::Types<...>`, like this:
 INSTANTIATE_TYPED_TEST_CASE_P(My, FooTest, int);
 ```
 
-You can see `samples/sample6_unittest.cc` for a complete example.
+You can see `samples/sample6_unittest.cc` for a completed example.
 
 _Availability:_ Linux, Windows (requires MSVC 8.0 or above), Mac;
 since version 1.1.0.
@@ -2002,7 +2002,7 @@ over from a previous run), Google Test will pick a different name (e.g.
 `foo_test_1.xml`) to avoid overwriting it.
 
 The report uses the format described here.  It is based on the
-`junitreport` Ant task and can be parsed by popular continuous build
+`junitreport` Ant activity and can be parsed by popular continuous build
 systems like [Hudson](https://hudson.dev.java.net/). Since that format
 was originally intended for Java, a little interpretation is required
 to make it apply to Google Test tests, as shown here:

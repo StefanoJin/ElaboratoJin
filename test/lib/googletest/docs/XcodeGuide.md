@@ -14,7 +14,7 @@ Here is the quick guide for using Google Test in your Xcode project.
   1. Edit the "UnitTests" executable and add an environment variable named "DYLD\_FRAMEWORK\_PATH" with a value equal to the path to the framework containing the gtest.framework relative to the compiled executable.
   1. Build and Go.
 
-The following sections further explain each of the steps listed above in depth, describing in more detail how to complete it including some variations.
+The following sections further explain each of the steps listed above in depth, describing in more detail how to completed it including some variations.
 
 # Get the Source #
 

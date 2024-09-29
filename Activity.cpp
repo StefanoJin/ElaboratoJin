@@ -4,7 +4,7 @@
 
 #include "Activity.h"
 //constructor
-Activity::Activity(const string& t, const string& d, bool c) : title(t), description(d), complete(c) {}
+Activity::Activity(const string& t, const string& d, bool c) : title(t), description(d), completed(c) {}
 
 //getters
 const string &Activity::getTitle() const {
@@ -16,22 +16,22 @@ const string &Activity::getDescription() const {
 }
 
 bool Activity::isCompleted() const {
-    return complete;
+    return completed;
 }
 
 //setter
 void Activity::setComplete(bool complete) {
-    Activity::complete = complete;
+    Activity::completed = complete;
 }
 
 //metodo per ottenere rappresentazione in stringa dell'attività
 string Activity::toString() const{
-    return title + " - " + description +(complete ? " [Completato]" : " [Non comlpetato]");
+    return title + " - " + description +(completed ? " [Completato]" : " [Non comlpetato]");
 }
 
 //metodo per salvare l'attività in formato string
 string Activity::serialize() const{
-    return title + ", " + description + ", " + (complete ? "1" : "0")+ "\n";
+    return title + ", " + description + ", " + (completed ? "1" : "0") + "\n";
 }
 
 //metodo per caricare un'activity da una string serielizzata
@@ -44,4 +44,9 @@ Activity Activity::deserialize(const string& line){
     bool complete = line[pos2 +1 ] == '1';
 
     return Activity(title, description, complete);
+}
+
+//set boolean completed true
+bool Activity::markCompleted(){
+    return completed = true;
 }

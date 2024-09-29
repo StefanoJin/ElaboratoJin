@@ -12,7 +12,7 @@ class Activity {
 private:
     string title;
     string description;
-    bool complete;
+    bool completed;
 
 public:
     //constructor
@@ -34,6 +34,8 @@ public:
 
     //metodo per caricare un'activity da una string serielizzata
     static Activity deserialize(const string& line);
+
+    bool markCompleted();
 };
 
 

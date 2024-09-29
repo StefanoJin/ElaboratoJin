@@ -94,7 +94,7 @@ class GTEST_API_ DeathTest {
   // test is encountered.  EXECUTE means that the death test logic should
   // be executed immediately.  OVERSEE means that the program should prepare
   // the appropriate environment for a child process to execute the death
-  // test, then wait for it to complete.
+  // test, then wait for it to completed.
   enum TestRole { OVERSEE_TEST, EXECUTE_TEST };
 
   // An enumeration of the three reasons that a test might be aborted.

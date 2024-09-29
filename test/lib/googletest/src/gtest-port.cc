@@ -48,7 +48,7 @@
 
 #if GTEST_OS_MAC
 # include <mach/mach_init.h>
-# include <mach/task.h>
+# include <mach/activity.h>
 # include <mach/vm_map.h>
 #endif  // GTEST_OS_MAC
 
@@ -107,14 +107,14 @@ size_t GetThreadCount() {
 #elif GTEST_OS_MAC
 
 size_t GetThreadCount() {
-  const task_t task = mach_task_self();
+  const task_t activity = mach_task_self();
   mach_msg_type_number_t thread_count;
   thread_act_array_t thread_list;
-  const kern_return_t status = task_threads(task, &thread_list, &thread_count);
+  const kern_return_t status = task_threads(activity, &thread_list, &thread_count);
   if (status == KERN_SUCCESS) {
     // task_threads allocates resources in thread_list and we need to free them
     // to avoid leaks.
-    vm_deallocate(task,
+    vm_deallocate(activity,
                   reinterpret_cast<vm_address_t>(thread_list),
                   sizeof(thread_t) * thread_count);
     return static_cast<size_t>(thread_count);
@@ -284,7 +284,7 @@ void Mutex::ThreadSafeLazyInit() {
         critical_section_ = new CRITICAL_SECTION;
         ::InitializeCriticalSection(critical_section_);
         // Updates the critical_section_init_phase_ to 2 to signal
-        // initialization complete.
+        // initialization completed.
         GTEST_CHECK_(::InterlockedCompareExchange(
                           &critical_section_init_phase_, 2L, 1L) ==
                       1L);

@@ -10,7 +10,7 @@ TodoList list;
 Activity activity("Do homework", "Math exercises");
 list.addActivity(activity);
 
-ASSERT_EQ(list.getTaskCount(), 1);
+ASSERT_EQ(list.getActivityCount(), 1);
 ASSERT_STREQ(list.getTask(0).getTitle(), "Do homework");
 }
 
@@ -23,7 +23,7 @@ list.addActivity(activity1);
 list.addActivity(activity2);
 
 list.removeActivity(0);  // Rimuove la prima activity
-ASSERT_EQ(list.getTaskCount(), 1);
+ASSERT_EQ(list.getActivityCount(), 1);
 ASSERT_STREQ(list.getActivity(0).getTitle(), "Wash dishes");
 }
 
@@ -43,6 +43,6 @@ TEST(ToDoListTest, LoadListFromDisk) {
 TodoList list;
 list.loadFromDisk("test_list.txt");
 
-ASSERT_EQ(list.getTaskCount(), 1);
+ASSERT_EQ(list.getActivityCount(), 1);
 ASSERT_STREQ(list.getActivity(0).getTitle(), "Do sport");
 }

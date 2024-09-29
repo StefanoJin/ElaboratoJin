@@ -11,7 +11,7 @@ which C++ testing framework is **the best**.  There exist many fine
 frameworks for writing C++ tests, and we have tremendous respect for
 the developers and users of them.  We don't think there is (or will
 be) a single best framework - you have to pick the right tool for the
-particular task you are tackling.
+particular activity you are tackling.
 
 We created Google Test because we couldn't find the right combination
 of features and conveniences in an existing framework to satisfy _our_
@@ -149,7 +149,7 @@ Make sure the selected platform is `x64`. For the
 `Intermediate Directory` setting, change the value from
 `$(PlatformName)\$(ConfigurationName)` to
 `$(OutDir)\$(ProjectName)`. Click `OK` and then build the
-solution. When the build is complete, the 64-bit binaries will be in
+solution. When the build is completed, the 64-bit binaries will be in
 the `msvc\x64\Debug` directory.
 
 ## Can I use Google Test on MinGW? ##
@@ -408,7 +408,7 @@ TEST_F(FooTest, Baz) { ... }
 If necessary, you can continue to derive test fixtures from a derived fixture.
 Google Test has no limit on how deep the hierarchy can be.
 
-For a complete example using derived test fixtures, see
+For a completed example using derived test fixtures, see
 [sample5](../samples/sample5_unittest.cc).
 
 ## My compiler complains "void value not ignored as it ought to be." What does this mean? ##
@@ -1087,6 +1087,6 @@ not enough information in your question):
   * the version (or the commit hash if you check out from Git directly) of Google Test you use (Google Test is under active development, so it's possible that your problem has been solved in a later version),
   * your operating system,
   * the name and version of your compiler,
-  * the complete command line flags you give to your compiler,
-  * the complete compiler error messages (if the question is about compilation),
-  * the _actual_ code (ideally, a minimal but complete program) that has the problem you encounter.
+  * the completed command line flags you give to your compiler,
+  * the completed compiler error messages (if the question is about compilation),
+  * the _actual_ code (ideally, a minimal but completed program) that has the problem you encounter.

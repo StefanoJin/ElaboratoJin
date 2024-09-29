@@ -28,7 +28,14 @@ public:
 
     //download todolist from disk
     void loadFromDisk(const string& filename);
-};
 
+    // return activity by index
+    const Activity& getActivity(int index);
+
+    //return number of activities
+    int getActivityCount() const {
+        return activity.size();
+    }
+};
 
 #endif //ELABORATOJIN_TODOLIST_H

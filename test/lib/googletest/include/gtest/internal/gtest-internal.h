@@ -1006,7 +1006,7 @@ struct RelationToSourceReference {};
 struct RelationToSourceCopy {};
 
 // Adapts a native array to a read-only STL-style container.  Instead
-// of the complete STL container concept, this adaptor only implements
+// of the completed STL container concept, this adaptor only implements
 // members useful for Google Mock's container matchers.  New members
 // should be added as needed.  To simplify the implementation, we only
 // support Element being a raw type (i.e. having no top-level const or
