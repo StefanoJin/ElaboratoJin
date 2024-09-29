@@ -23,8 +23,8 @@ void Todolist::print() const{
         cout << i + 1 << ". " << activity[i].toString() << endl;
 }
 
-//save todolist on disc
-void Todolist::saveOnDisc(const string& fileName) const{
+//save todolist on disk
+void Todolist::saveToDisk(const string& fileName) const{
     //file: write operation
     std::ofstream file(fileName);
 
@@ -36,10 +36,10 @@ void Todolist::saveOnDisc(const string& fileName) const{
         cerr << "Error - cannot open the file." << endl;
 }
 
-//download todolist from disc
-void Todolist::downloadFromDisc(const string& fileName){
+//download todolist from disk
+void Todolist::loadFromDisk(const string& filename){
     //file: read operation
-    ifstream file(fileName);
+    ifstream file(filename);
 
     if(file.is_open()){
         activity.clear();

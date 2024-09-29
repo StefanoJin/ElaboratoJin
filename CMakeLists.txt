@@ -8,7 +8,9 @@ add_subdirectory(test)
 set(SOURCE_FILES Activity.cpp
         Activity.h
         Todolist.cpp
-        Todolist.h)
+        Todolist.h
+        ToDoInterface.cpp
+        ToDoInterface.h)
 
 add_executable(ElaboratoJin main.cpp)
 

@@ -23,11 +23,11 @@ public:
     //print all activities
     void print() const;
 
-    //save todolist on disc
-    void saveOnDisc(const string& fileName) const;
+    //save todolist on disk
+    void saveToDisk(const string& fileName) const;
 
-    //download todolist from disc
-    void downloadFromDisc(const string& filename);
+    //download todolist from disk
+    void loadFromDisk(const string& filename);
 };
 
 
