@@ -36,6 +36,9 @@ int main() {
                 interface.loadList();
                 break;
             case 6:
+                interface.changeState();
+                break;
+            case 0:
                 exit = true;
                 cout << "Exiting the program..." << endl;
                 break;

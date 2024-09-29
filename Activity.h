@@ -6,6 +6,7 @@
 #define ELABORATOJIN_ACTIVITY_H
 
 #include <string>
+#include <iostream>
 using namespace std;
 
 class Activity {
@@ -35,7 +36,7 @@ public:
     //metodo per caricare un'activity da una string serielizzata
     static Activity deserialize(const string& line);
 
-    bool markCompleted();
+    void markCompleted();
 };
 
 

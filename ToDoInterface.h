@@ -22,6 +22,7 @@ public:
     void showActivity();
     void saveList();
     void loadList();
+    void changeState();
 };
 
 

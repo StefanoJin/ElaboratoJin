@@ -30,7 +30,7 @@ public:
     void loadFromDisk(const string& filename);
 
     // return activity by index
-    const Activity& getActivity(int index);
+    Activity& getActivity(int index);
 
     //return number of activities
     int getActivityCount() const {

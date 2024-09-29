@@ -53,7 +53,7 @@ void Todolist::loadFromDisk(const string& filename){
         cerr << "Error - cannot open the file." << endl;
 }
 
-const Activity& Todolist::getActivity(int index){
+Activity& Todolist::getActivity(int index){
     if (index < 0 || index >= activity.size()) {
         throw std::out_of_range("Invalid index");
     }

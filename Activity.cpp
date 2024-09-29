@@ -47,6 +47,11 @@ Activity Activity::deserialize(const string& line){
 }
 
 //set boolean completed true
-bool Activity::markCompleted(){
-    return completed = true;
+void Activity::markCompleted(){
+    completed = !completed;
+    if (completed) {
+        cout << "The activity has been marked as completed." << endl;
+    } else {
+        cout << "The activity has been marked as not completed." << endl;
+    }
 }
