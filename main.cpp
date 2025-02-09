@@ -41,6 +41,9 @@ int main() {
             case 7:
                 interface.search();
             break;
+            case 8:
+                interface.showIncompleteCount();
+            break;
             case 0:
                 exit = true;
                 cout << "Exiting the program..." << endl;
