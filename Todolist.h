@@ -45,6 +45,9 @@ public:
 
     //return activity by string
     vector<Activity> searchActivity(const string& keyword) const;
+
+    //count incompleted activities
+    int countIncompleteActivities() const;
 };
 
 #endif //ELABORATOJIN_TODOLIST_H

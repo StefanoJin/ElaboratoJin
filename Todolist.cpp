@@ -53,6 +53,7 @@ void Todolist::loadFromDisk(const string& filename){
         cerr << "Error - cannot open the file." << endl;
 }
 
+// return activity by index
 Activity& Todolist::getActivity(int index){
     if (index < 0 || index >= activity.size()) {
         throw std::out_of_range("Invalid index");
@@ -60,6 +61,7 @@ Activity& Todolist::getActivity(int index){
     return activity[index];
 }
 
+//return activity by string
 vector<Activity> Todolist::searchActivity(const string& keyword) const {
     vector<Activity> results;
     for (const auto& act : activity) {
@@ -69,3 +71,13 @@ vector<Activity> Todolist::searchActivity(const string& keyword) const {
     }
     return results;
 }
+
+//count incompleted activities
+int Todolist::countIncompleteActivities() const {
+    int count = 0;
+    for (const auto& act : activity) {
+        if (!act.isCompleted()) count++;
+    }
+    return count;
+}
+

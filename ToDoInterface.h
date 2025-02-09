@@ -24,6 +24,7 @@ public:
     void loadList();
     void changeState();
     void search();
+    void showIncompleteCount();
 };
 
 
