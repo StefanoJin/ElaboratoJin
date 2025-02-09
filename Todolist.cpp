@@ -59,3 +59,13 @@ Activity& Todolist::getActivity(int index){
     }
     return activity[index];
 }
+
+vector<Activity> Todolist::searchActivity(const string& keyword) const {
+    vector<Activity> results;
+    for (const auto& act : activity) {
+        if (act.getTitle().find(keyword) != string::npos || act.getDescription().find(keyword) != string::npos) {
+            results.push_back(act);
+        }
+    }
+    return results;
+}

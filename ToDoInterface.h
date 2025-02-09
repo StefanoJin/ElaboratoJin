@@ -23,6 +23,7 @@ public:
     void saveList();
     void loadList();
     void changeState();
+    void search();
 };
 
 

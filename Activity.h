@@ -36,6 +36,7 @@ public:
     //metodo per caricare un'activity da una string serielizzata
     static Activity deserialize(const string& line);
 
+    //stato dell'attività
     void markCompleted();
 };
 

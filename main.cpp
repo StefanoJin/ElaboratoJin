@@ -38,6 +38,9 @@ int main() {
             case 6:
                 interface.changeState();
                 break;
+            case 7:
+                interface.search();
+            break;
             case 0:
                 exit = true;
                 cout << "Exiting the program..." << endl;

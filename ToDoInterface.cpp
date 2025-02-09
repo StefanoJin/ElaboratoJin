@@ -17,6 +17,7 @@ void ToDoInterface::printMenu() const{
     cout << "4. Save list to disk" << endl;
     cout << "5. Load list from disk" << endl;
     cout << "6. Change state of activity" << endl;
+    cout << "7. Search activity" << endl << endl;
     cout << "0. Exit" << endl;
     cout << "Choose an option: ";
 }
@@ -82,4 +83,22 @@ void ToDoInterface::changeState(){
 
     list.getActivity(index-1).markCompleted();
     cout << "Activity state changed successfully!" << endl;
+}
+
+//search activity by key word
+void ToDoInterface::search() {
+    string keyword;
+    cout << "Enter a keyword to search: ";
+    getline(cin, keyword);
+
+    vector<Activity> results = list.searchActivity(keyword);
+
+    if (results.empty()) {
+        cout << "No activities found matching: " << keyword << endl;
+    } else {
+        cout << "Activities found:" << endl;
+        for (const auto& act : results) {
+            cout << "- " << act.toString() << endl;
+        }
+    }
 }
