@@ -10,7 +10,8 @@ set(SOURCE_FILES Activity.cpp
         Todolist.cpp
         Todolist.h
         ToDoInterface.cpp
-        ToDoInterface.h)
+        ToDoInterface.h
+        Observer.h)
 
 add_executable(ElaboratoJin main.cpp)
 

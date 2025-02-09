@@ -11,6 +11,8 @@ int main() {
     Todolist list;
     ToDoInterface interface(list);
 
+    list.addObserver(&interface);
+
     bool exit = false;
 
     while (!exit) {

@@ -84,6 +84,7 @@ void ToDoInterface::changeState(){
 
     list.getActivity(index-1).markCompleted();
     cout << "Activity state changed successfully!" << endl;
+    list.notifyObservers();
 }
 
 //search activity by key word

@@ -6,8 +6,9 @@
 #define ELABORATOJIN_TODOINTERFACE_H
 
 #include "Todolist.h"
+#include "Observer.h"
 
-class ToDoInterface {
+class ToDoInterface : public Observer {
 private:
     Todolist& list;
 
@@ -25,6 +26,11 @@ public:
     void changeState();
     void search();
     void showIncompleteCount();
+
+    void update() override {
+        // When notified, show the number of incomplete activities.
+        cout << "Incomplete activities: " << list.countIncompleteActivities() << endl;
+    }
 };
 
 

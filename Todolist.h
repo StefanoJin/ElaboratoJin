@@ -14,10 +14,12 @@
 #include <vector>
 #include <string>
 #include "Activity.h"
+#include "Observer.h"
 
 class Todolist {
 private:
-    vector<Activity> activity;
+    std::vector<Activity> activity;
+    vector<Observer*> observers;
 
 public:
     //add a new activity
@@ -48,6 +50,15 @@ public:
 
     //count incompleted activities
     int countIncompleteActivities() const;
+
+    // add observer
+    void addObserver(Observer* observer);
+
+    // remove observer
+    void removeObserver(Observer* observer);
+
+    // notify observer
+    void notifyObservers();
 };
 
 #endif //ELABORATOJIN_TODOLIST_H

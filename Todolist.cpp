@@ -5,16 +5,19 @@
 #include "Todolist.h"
 #include <fstream>
 #include <iostream>
+#include <algorithm>  //std::remove
 
 //add a new activity
 void Todolist::addActivity(const Activity& act){
     activity.push_back(act);
+    notifyObservers();
 }
 
 //remove activity by index
 void Todolist::removeActivity(int index){
     if(index < activity.size())
         activity.erase(activity.begin() + index);
+    notifyObservers();
 }
 
 //print all activities
@@ -81,3 +84,19 @@ int Todolist::countIncompleteActivities() const {
     return count;
 }
 
+// add observer
+void Todolist::addObserver(Observer* observer) {
+    observers.push_back(observer);
+}
+
+// remove observer
+void Todolist::removeObserver(Observer* observer) {
+    observers.erase(remove(observers.begin(), observers.end(), observer), observers.end());
+}
+
+// notify observer
+void Todolist::notifyObservers() {
+    for (Observer* observer : observers) {
+        observer->update();
+    }
+}
