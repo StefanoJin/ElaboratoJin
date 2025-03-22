@@ -15,7 +15,7 @@ Activity activity("Read a book", "Read at least 50 pages");
 list.addActivity(activity);
 
 ASSERT_EQ(list.getActivityCount(), 1);
-ASSERT_STREQ(list.getActivity(0).getTitle(), "Read a book");
+ASSERT_STREQ(list.getActivity(0).getTitle().c_str(), "Read a book");
 }
 
 // Test: Rimozione di un'attività tramite l'interfaccia
@@ -37,7 +37,7 @@ ToDoInterface ui(list);
 
 Activity activity("Plan trip", "Research destinations for vacation");
 list.addActivity(activity);
-ui.saveList();  // Usa l'interfaccia per salvare
+ui.saveList("test.txt");  // Usa l'interfaccia per salvare
 
 ASSERT_TRUE(true);  // Anche in questo caso, il test per il salvataggio è basico
 }

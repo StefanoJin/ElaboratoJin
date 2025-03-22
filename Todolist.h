@@ -5,12 +5,6 @@
 #ifndef ELABORATOJIN_TODOLIST_H
 #define ELABORATOJIN_TODOLIST_H
 
-    //Revisione elaborato prima volta
-    //1.subject,observer conta quante volte viene chiamato
-    //2.quante attivita sono ancora da completare
-    //3.modifica attivita
-    //4.cerca attivita per stringa
-
 #include <vector>
 #include <string>
 #include "Activity.h"

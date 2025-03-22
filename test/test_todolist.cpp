@@ -6,17 +6,17 @@
 
 // Test: Aggiungere un'attività alla lista
 TEST(ToDoListTest, AddActivity) {
-TodoList list;
+Todolist list;
 Activity activity("Do homework", "Math exercises");
 list.addActivity(activity);
 
 ASSERT_EQ(list.getActivityCount(), 1);
-ASSERT_STREQ(list.getTask(0).getTitle(), "Do homework");
+ASSERT_STREQ(list.getActivity(0).getTitle().c_str(), "Do homework");
 }
 
 // Test: Rimuovere un'attività dalla lista
 TEST(ToDoListTest, RemoveActivity) {
-ToDoList list;
+Todolist list;
 Activity activity1("Do homework", "Math exercises");
 Activity activity2("Wash dishes", "Clean the kitchen");
 list.addActivity(activity1);
@@ -24,12 +24,12 @@ list.addActivity(activity2);
 
 list.removeActivity(0);  // Rimuove la prima activity
 ASSERT_EQ(list.getActivityCount(), 1);
-ASSERT_STREQ(list.getActivity(0).getTitle(), "Wash dishes");
+ASSERT_STREQ(list.getActivity(0).getTitle().c_str(), "Wash dishes");
 }
 
 // Test: Salvare la lista su disco
 TEST(ToDoListTest, SaveListToDisk) {
-ToDoList list;
+Todolist list;
 Activity activity("Do sport", "Play basketball for 30 minutes");
 list.addActivity(activity);
 
@@ -40,9 +40,9 @@ ASSERT_TRUE(true);
 
 // Test: Caricare la lista da disco
 TEST(ToDoListTest, LoadListFromDisk) {
-TodoList list;
+Todolist list;
 list.loadFromDisk("test_list.txt");
 
 ASSERT_EQ(list.getActivityCount(), 1);
-ASSERT_STREQ(list.getActivity(0).getTitle(), "Do sport");
+ASSERT_STREQ(list.getActivity(0).getTitle().c_str(), "Do sport");
 }

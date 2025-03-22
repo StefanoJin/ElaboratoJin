@@ -21,7 +21,7 @@ public:
     void add();
     void remove();
     void showActivity();
-    void saveList();
+    void saveList(const std::string& fileName);
     void loadList();
     void changeState();
     void search();

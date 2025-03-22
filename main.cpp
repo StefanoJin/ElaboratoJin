@@ -3,6 +3,12 @@
  *  Classi che rappresentano attività da svolgere (es. per todolist).
  *  Deve essere possibile scrivere e leggere da disco l'elenco delle attività.*/
 
+//Revisione elaborato prima volta
+    //1.subject,observer conta quante volte viene chiamato
+    //2.quante attivita sono ancora da completare
+    //3.modifica attivita
+    //4.cerca attivita per stringa
+
 #include <iostream>
 #include "Todolist.h"
 #include "ToDoInterface.h"
@@ -32,7 +38,10 @@ int main() {
                 interface.showActivity();
                 break;
             case 4:
-                interface.saveList();
+                string fileName;
+                cout << "Enter the filename: ";
+                cin >> fileName;
+                interface.saveList(fileName);
                 break;
             case 5:
                 interface.loadList();

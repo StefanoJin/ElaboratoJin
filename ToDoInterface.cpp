@@ -54,10 +54,7 @@ void ToDoInterface::showActivity(){
     list.print();
 }
 
-void ToDoInterface::saveList(){
-    string fileName;
-    cout << "Enter the filename: ";
-    getline(cin, fileName);
+void ToDoInterface::saveList(const std::string& fileName){
     list.saveToDisk(fileName);
     cout << "List saved successfully to " << fileName << endl;
 }

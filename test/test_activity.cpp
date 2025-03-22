@@ -8,8 +8,8 @@
 // Test: Creazione dell'attività con titolo e descrizione
 TEST(TodoList, CreateActivity) {
 Activity activity("Buy groceries", "Buy milk and eggs");
-ASSERT_STREQ(activity.getTitle(), "Buy groceries");
-ASSERT_STREQ(activity.getDescription(), "Buy milk and eggs");
+ASSERT_STREQ(activity.getTitle().c_str(), "Buy groceries");
+ASSERT_STREQ(activity.getDescription().c_str(), "Buy milk and eggs");
 ASSERT_FALSE(activity.isCompleted());
 }
 
@@ -23,6 +23,6 @@ ASSERT_TRUE(activity.isCompleted());
 // Test: Verifica che la descrizione venga impostata correttamente
 TEST(TodoList, CheckDescription) {
 Activity activity("Go jogging", "Run for 30 minutes");
-ASSERT_STREQ(activity.getDescription(), "Run for 30 minutes");
+ASSERT_STREQ(activity.getDescription().c_str(), "Run for 30 minutes");
 }
 
