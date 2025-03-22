@@ -8,6 +8,7 @@
     //2.quante attivita sono ancora da completare
     //3.modifica attivita
     //4.cerca attivita per stringa
+    //5.sistemare googletest
 
 #include <iostream>
 #include "Todolist.h"
