@@ -39,10 +39,11 @@ int main() {
                 interface.showActivity();
                 break;
             case 4:
-                string fileName;
+                /*string fileName;
                 cout << "Enter the filename: ";
                 cin >> fileName;
-                interface.saveList(fileName);
+                interface.saveList(fileName);*/
+                    interface.saveList();
                 break;
             case 5:
                 interface.loadList();

@@ -31,7 +31,7 @@ ASSERT_EQ(list.getActivityCount(), 0);
 }
 
 // Test: Salvataggio della lista tramite l'interfaccia
-TEST(ToDoInterfaceTest, SaveTaskViaInterface) {
+/*TEST(ToDoInterfaceTest, SaveTaskViaInterface) {
 Todolist list;
 ToDoInterface ui(list);
 
@@ -40,4 +40,4 @@ list.addActivity(activity);
 ui.saveList("test.txt");  // Usa l'interfaccia per salvare
 
 ASSERT_TRUE(true);  // Anche in questo caso, il test per il salvataggio è basico
-}
+}*/
