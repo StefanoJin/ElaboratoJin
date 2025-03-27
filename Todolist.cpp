@@ -26,6 +26,13 @@ void Todolist::print() const{
         cout << i + 1 << ". " << activity[i].toString() << endl;
 }
 
+//print only incompleted
+void Todolist::printIncompleted() const{
+    for(int i = 0; i < activity.size(); ++i)
+        if (!activity[i].isCompleted())
+            cout << i + 1 << ". " << activity[i].toString() << endl;
+}
+
 //save todolist on disk
 void Todolist::saveToDisk(const string& fileName) const{
     //file: write operation
@@ -84,7 +91,7 @@ int Todolist::countIncompleteActivities() const {
     return count;
 }
 
-// add observer
+/*// add observer
 void Todolist::addObserver(Observer* observer) {
     observers.push_back(observer);
 }
@@ -99,4 +106,4 @@ void Todolist::notifyObservers() {
     for (Observer* observer : observers) {
         observer->update();
     }
-}
+}*/

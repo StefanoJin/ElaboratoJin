@@ -9,8 +9,10 @@
 #include <string>
 #include "Activity.h"
 #include "Observer.h"
+#include "Subject.h"
 
-class Todolist {
+
+class Todolist : public Subject{
 private:
     std::vector<Activity> activity;
     vector<Observer*> observers;
@@ -24,6 +26,9 @@ public:
 
     //print all activities
     void print() const;
+
+    //print only incompleted
+    void printIncompleted() const;
 
     //save todolist on disk
     void saveToDisk(const string& fileName) const;
@@ -45,14 +50,14 @@ public:
     //count incompleted activities
     int countIncompleteActivities() const;
 
-    // add observer
+ /*   // add observer
     void addObserver(Observer* observer);
 
     // remove observer
     void removeObserver(Observer* observer);
 
     // notify observer
-    void notifyObservers();
+    void notifyObservers();*/
 };
 
 #endif //ELABORATOJIN_TODOLIST_H

@@ -52,6 +52,7 @@ void ToDoInterface::remove(){
 
 void ToDoInterface::showActivity(){
     list.print();
+    list.notifyObservers();
 }
 
 //Metodo per google test
@@ -114,4 +115,5 @@ void ToDoInterface::search() {
 //count incompleted activities
 void ToDoInterface::showIncompleteCount() {
     cout << "There are " << list.countIncompleteActivities() << " activities still incomplete." << endl;
+    list.printIncompleted();
 }
