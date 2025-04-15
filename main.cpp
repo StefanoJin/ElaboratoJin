@@ -16,7 +16,7 @@
     //4.todolist usa lista invece di vector ✓
     //5.test rimozione attivita non presente ✓
     //5.test ricerca attivita non esistente(by title) ✓
-    //6.test quante attivita da completare
+    //6.test quante attivita da completare ✓
     //7.sistemare il test del load e save
 //
 

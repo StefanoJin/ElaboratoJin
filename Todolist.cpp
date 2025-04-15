@@ -109,19 +109,11 @@ int Todolist::countIncompleteActivities() const {
     return count;
 }
 
-/*// add observer
-void Todolist::addObserver(Observer* observer) {
-    observers.push_back(observer);
-}
-
-// remove observer
-void Todolist::removeObserver(Observer* observer) {
-    observers.erase(remove(observers.begin(), observers.end(), observer), observers.end());
-}
-
-// notify observer
-void Todolist::notifyObservers() {
-    for (Observer* observer : observers) {
-        observer->update();
+//count completed activities
+int Todolist::countCompleteActivities() const {
+    int count = 0;
+    for (const auto& act : activity) {
+        if (act.isCompleted()) count++;
     }
-}*/
+    return count;
+}

@@ -44,20 +44,13 @@ public:
     }
 
     //return activity by string
-    //usa lista
     list<Activity> searchActivity(const std::string& keyword) const;
 
     //count incompleted activities
     int countIncompleteActivities() const;
 
- /*   // add observer
-    void addObserver(Observer* observer);
-
-    // remove observer
-    void removeObserver(Observer* observer);
-
-    // notify observer
-    void notifyObservers();*/
+    //count completed activities
+    int countCompleteActivities() const;
 };
 
 #endif //ELABORATOJIN_TODOLIST_H

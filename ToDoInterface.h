@@ -33,6 +33,7 @@ public:
         // When notified, show the number of incomplete activities and number of all activities
         cout << "Number of all activities: " << list.getActivityCount() << endl;
         cout << "Incomplete activities: " << list.countIncompleteActivities() << endl;
+        cout << "Completed activities: " << list.countCompleteActivities() << endl;
     }
 };
 

@@ -61,7 +61,43 @@ TEST(ToDoListTest, SearchNonExistentActivityByTitle) {
     ASSERT_TRUE(results.empty());
 }
 
-// quante attivita da completare
+// test quante attivita da completare
+TEST(ToDoListTest, CountIncompleteActivities) {
+    Todolist list;
+    Activity activity1("Do homework", "Math exercises");
+    Activity activity2("Wash dishes", "Clean the kitchen");
+    Activity activity3("Go for a walk", "Morning exercise");
+
+    list.addActivity(activity1);
+    list.addActivity(activity2);
+    list.addActivity(activity3);
+
+    // seet completato alcune attivita'
+    list.getActivity(0).setComplete(true); // Completa "Do homework"
+    list.getActivity(2).setComplete(true); // Completa "Go for a walk"
+
+    // Controlla quante attività non sono completate
+    ASSERT_EQ(list.countIncompleteActivities(), 1); // Solo "Wash dishes" dovrebbe essere incompleta
+}
+
+// test quante attivita completate
+TEST(ToDoListTest, CountCompleteActivities) {
+    Todolist list;
+    Activity activity1("Do homework", "Math exercises");
+    Activity activity2("Wash dishes", "Clean the kitchen");
+    Activity activity3("Go for a walk", "Morning exercise");
+
+    list.addActivity(activity1);
+    list.addActivity(activity2);
+    list.addActivity(activity3);
+
+    // set completato alcune attivita'
+    list.getActivity(0).setComplete(true); // Completa "Do homework"
+    list.getActivity(2).setComplete(true); // Completa "Go for a walk"
+
+    // Controlla quante attività sono completate
+    ASSERT_EQ(list.countCompleteActivities(), 2); // Solo "Wash dishes" dovrebbe essere incompleta
+}
 
 // Test: Salvare la lista su disco
 TEST(ToDoListTest, SaveListToDisk) {
