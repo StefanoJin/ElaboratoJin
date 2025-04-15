@@ -26,9 +26,11 @@ public:
     void changeState();
     void search();
     void showIncompleteCount();
+    void ActivityCount();
 
     void update() override {
-        // When notified, show the number of incomplete activities.
+        // When notified, show the number of incomplete activities and number of all activities
+        cout << "Number of all activities: " << list.getActivityCount() << endl;
         cout << "Incomplete activities: " << list.countIncompleteActivities() << endl;
     }
 };

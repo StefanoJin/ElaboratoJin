@@ -19,6 +19,7 @@ void ToDoInterface::printMenu() const{
     cout << "6. Change state of activity" << endl;
     cout << "7. Search activity" << endl;
     cout << "8. Show incomplete activities" << endl;
+    cout << "9. Show number of all activities" << endl;
     cout << "0. Exit" << endl;
     cout << "Choose an option: ";
 }
@@ -114,6 +115,12 @@ void ToDoInterface::search() {
 
 //count incompleted activities
 void ToDoInterface::showIncompleteCount() {
-    cout << "There are " << list.countIncompleteActivities() << " activities still incomplete." << endl;
+    cout << "--- There are " << list.countIncompleteActivities() << " activities still incomplete. ---" << endl;
     list.printIncompleted();
 }
+
+//count all activities
+void ToDoInterface::ActivityCount() {
+    cout << "There are " << list.getActivityCount() << " activities in TODOLIST." << endl;
+}
+

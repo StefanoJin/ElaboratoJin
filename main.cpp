@@ -6,9 +6,19 @@
 //Revisione elaborato prima volta
     //1.subject,observer conta quante volte viene chiamato
     //2.quante attivita sono ancora da completare
+    //3.cerca attivita per stringa
+    //4.sistemare googletest
+
+//Seconda revisione elaborato
+    //1.attivita in tutto presente ✓
+    //2.Subject: uso lista invece di vector ✓
     //3.modifica attivita
-    //4.cerca attivita per stringa
-    //5.sistemare googletest
+    //4.todolist usa lista invece di vector ✓
+    //5.test rimozione attivita non presente
+    //5.test attivita non esistente
+    //6.test quante attivita da completare
+    //7.sistemare il test del load e save
+//
 
 #include <iostream>
 #include "Todolist.h"
@@ -39,11 +49,7 @@ int main() {
                 interface.showActivity();
                 break;
             case 4:
-                /*string fileName;
-                cout << "Enter the filename: ";
-                cin >> fileName;
-                interface.saveList(fileName);*/
-                    interface.saveList();
+                interface.saveList();
                 break;
             case 5:
                 interface.loadList();
@@ -56,6 +62,9 @@ int main() {
             break;
             case 8:
                 interface.showIncompleteCount();
+            break;
+            case 9:
+                interface.ActivityCount();
             break;
             case 0:
                 exit = true;
