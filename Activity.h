@@ -25,6 +25,14 @@ public:
     bool isCompleted() const;
 
     //setters
+    void setTitle(const std::string& newTitle) {
+        title = newTitle;
+    }
+
+    void setDescription(const std::string& newDescription) {
+        description = newDescription;
+    }
+
     void setComplete(bool complete);
 
     //metodo per ottenere una rappresentazione stringa dell'attività

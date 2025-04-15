@@ -27,6 +27,7 @@ public:
     void search();
     void showIncompleteCount();
     void ActivityCount();
+    void Modify();
 
     void update() override {
         // When notified, show the number of incomplete activities and number of all activities

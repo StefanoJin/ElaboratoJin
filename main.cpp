@@ -12,7 +12,7 @@
 //Seconda revisione elaborato
     //1.attivita in tutto presente ✓
     //2.Subject: uso lista invece di vector ✓
-    //3.modifica attivita
+    //3.modifica attivita ✓
     //4.todolist usa lista invece di vector ✓
     //5.test rimozione attivita non presente
     //5.test attivita non esistente
@@ -65,6 +65,9 @@ int main() {
             break;
             case 9:
                 interface.ActivityCount();
+            break;
+            case 10:
+                interface.Modify();
             break;
             case 0:
                 exit = true;

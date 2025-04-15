@@ -20,6 +20,7 @@ void ToDoInterface::printMenu() const{
     cout << "7. Search activity" << endl;
     cout << "8. Show incomplete activities" << endl;
     cout << "9. Show number of all activities" << endl;
+    cout << "10. Modify activity" << endl;
     cout << "0. Exit" << endl;
     cout << "Choose an option: ";
 }
@@ -122,5 +123,36 @@ void ToDoInterface::showIncompleteCount() {
 //count all activities
 void ToDoInterface::ActivityCount() {
     cout << "There are " << list.getActivityCount() << " activities in TODOLIST." << endl;
+}
+
+//modify activity
+void ToDoInterface::Modify() {
+    list.print();
+
+    int activityNumber;
+    cout << "Enter the number of the activity to modify: ";
+    cin >> activityNumber;
+
+    // Vefify index
+    if (activityNumber < 1 || activityNumber > list.getActivityCount()) {
+        cout << "Invalid activity number!" << endl;
+        return;
+    }
+
+    // Get the activity to modify
+    Activity& act = list.getActivity(activityNumber - 1);
+
+    string newTitle, newDescription;
+    cout << "Enter the new title: ";
+    cin.ignore();
+    getline(cin, newTitle);
+    cout << "Enter the new description: ";
+    getline(cin, newDescription);
+
+    act.setTitle(newTitle);
+    act.setDescription(newDescription);
+
+    cout << "Activity modified successfully!" << endl;
+    list.notifyObservers();
 }
 
