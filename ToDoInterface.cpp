@@ -41,12 +41,6 @@ void ToDoInterface::remove(){
     cout << "Enter the activity number to remove: ";
     cin >> index;
 
-    // Controlla se l'indice è valido
-    if (index-1 < 0 || index-1 >= list.getActivityCount()) {
-        cout << "Invalid index. Please try again." << endl;
-        return;
-    }
-
     cin.ignore();  // per ignorare il newline rimasto nel buffer
     list.removeActivity(index - 1);  // Il numero mostrato è 1-based
     cout << "Activity removed successfully!" << std::endl;

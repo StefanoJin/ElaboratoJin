@@ -27,6 +27,29 @@ ASSERT_EQ(list.getActivityCount(), 1);
 ASSERT_STREQ(list.getActivity(0).getTitle().c_str(), "Wash dishes");
 }
 
+
+// test rimozione attivita non presente (con indice invalido)
+TEST(ToDoListTest, RemoveInvalidIndex) {
+    Todolist list;
+    Activity activity1("Do homework", "Math exercises");
+    Activity activity2("Wash dishes", "Clean the kitchen");
+    list.addActivity(activity1);
+    list.addActivity(activity2);
+
+    list.removeActivity(3);  // Rimuove un activity che ha index non valido
+    ASSERT_EQ(list.getActivityCount(), 2);
+}
+
+TEST(ToDoListTest, GetActivityThrowsOnInvalidIndex) {
+    Todolist list;
+    list.addActivity(Activity("Test", "Descrizione"));
+
+    // Proviamo ad accedere a un indice non valido
+    ASSERT_THROW(list.getActivity(5), std::out_of_range);
+}
+//test attivita non esistente
+// quante attivita da completare
+
 // Test: Salvare la lista su disco
 TEST(ToDoListTest, SaveListToDisk) {
 Todolist list;
@@ -35,7 +58,7 @@ list.addActivity(activity);
 
 list.saveToDisk("test_list.txt");
 //controllare manualmente il file salvato.
-ASSERT_TRUE(true);
+ASSERT_TRUE(true);   // test automatica
 }
 
 // Test: Caricare la lista da disco
