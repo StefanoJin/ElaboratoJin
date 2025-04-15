@@ -5,7 +5,7 @@
 #ifndef ELABORATOJIN_TODOLIST_H
 #define ELABORATOJIN_TODOLIST_H
 
-#include <vector>
+#include <list>
 #include <string>
 #include "Activity.h"
 #include "Observer.h"
@@ -14,8 +14,7 @@
 
 class Todolist : public Subject{
 private:
-    std::vector<Activity> activity;
-    vector<Observer*> observers;
+    std::list<Activity> activity;
 
 public:
     //add a new activity
@@ -45,7 +44,8 @@ public:
     }
 
     //return activity by string
-    vector<Activity> searchActivity(const string& keyword) const;
+    //usa lista
+    list<Activity> searchActivity(const std::string& keyword) const;
 
     //count incompleted activities
     int countIncompleteActivities() const;

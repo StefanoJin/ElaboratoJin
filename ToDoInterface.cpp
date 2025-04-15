@@ -15,7 +15,7 @@ void ToDoInterface::printMenu() const{
     cout << "2. Remove activity" << endl;
     cout << "3. Show activities" << endl;
     cout << "4. Save list to disk" << endl;
-    cout << "5. Load list from disk" << endl;
+    cout << "5. Load list from  " << endl;
     cout << "6. Change state of activity" << endl;
     cout << "7. Search activity" << endl;
     cout << "8. Show incomplete activities" << endl;
@@ -100,7 +100,7 @@ void ToDoInterface::search() {
     cout << "Enter a keyword to search: ";
     getline(cin, keyword);
 
-    vector<Activity> results = list.searchActivity(keyword);
+    std::list<Activity> results = list.searchActivity(keyword);
 
     if (results.empty()) {
         cout << "No activities found matching: " << keyword << endl;

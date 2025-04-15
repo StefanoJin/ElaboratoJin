@@ -5,14 +5,12 @@
 #ifndef SUBJECT_H
 #define SUBJECT_H
 
-#include <vector>
+#include <list>
 #include "Observer.h"
-#include <algorithm>
 
 class Subject {
 protected:
-    std::vector<Observer*> observers;
-
+    std::list<Observer*> observers;
 public:
     virtual ~Subject() = default;
 
@@ -21,7 +19,7 @@ public:
     }
 
     void removeObserver(Observer* observer) {
-        observers.erase(std::remove(observers.begin(), observers.end(), observer), observers.end());
+        observers.remove(observer);
     }
 
     void notifyObservers() {

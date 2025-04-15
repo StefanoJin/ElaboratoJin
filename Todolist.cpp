@@ -15,22 +15,35 @@ void Todolist::addActivity(const Activity& act){
 
 //remove activity by index
 void Todolist::removeActivity(int index){
-    if(index < activity.size())
-        activity.erase(activity.begin() + index);
+    if (index < 0 || index >= activity.size()) {
+        throw std::out_of_range("Invalid index");
+    }
+
+    auto it = activity.begin();
+    for (int i = 0; i < index; ++i) {
+        ++it;
+    }
+
+    activity.erase(it);
     notifyObservers();
 }
 
 //print all activities
 void Todolist::print() const{
-    for(int i = 0; i < activity.size(); ++i)
-        cout << i + 1 << ". " << activity[i].toString() << endl;
+    int index = 1;
+    for (const auto& act : activity) {
+        std::cout << index++ << ". " << act.toString() << std::endl;
+    }
 }
 
 //print only incompleted
 void Todolist::printIncompleted() const{
-    for(int i = 0; i < activity.size(); ++i)
-        if (!activity[i].isCompleted())
-            cout << i + 1 << ". " << activity[i].toString() << endl;
+    int index = 1;
+    for (const auto& act : activity) {
+        if (!act.isCompleted()) {
+            std::cout << index++ << ". " << act.toString() << std::endl;
+        }
+    }
 }
 
 //save todolist on disk
@@ -66,14 +79,19 @@ void Todolist::loadFromDisk(const string& filename){
 // return activity by index
 Activity& Todolist::getActivity(int index){
     if (index < 0 || index >= activity.size()) {
-        throw std::out_of_range("Invalid index");
+        throw std::out_of_range("Indice non valido");
     }
-    return activity[index];
+
+    auto it = activity.begin();
+    for (int i = 0; i < index; ++i) {
+        ++it;
+    }
+    return *it;
 }
 
 //return activity by string
-vector<Activity> Todolist::searchActivity(const string& keyword) const {
-    vector<Activity> results;
+list<Activity> Todolist::searchActivity(const string& keyword) const {
+    list<Activity> results;
     for (const auto& act : activity) {
         if (act.getTitle().find(keyword) != string::npos || act.getDescription().find(keyword) != string::npos) {
             results.push_back(act);
