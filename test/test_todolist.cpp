@@ -36,7 +36,7 @@ TEST(ToDoListTest, RemoveInvalidIndex) {
     list.addActivity(activity1);
     list.addActivity(activity2);
 
-    list.removeActivity(3);  // Rimuove un activity che ha index non valido
+    ASSERT_THROW(list.removeActivity(5), std::out_of_range);// Rimuove un activity che ha index non valido
     ASSERT_EQ(list.getActivityCount(), 2);
 }
 
@@ -47,7 +47,20 @@ TEST(ToDoListTest, GetActivityThrowsOnInvalidIndex) {
     // Proviamo ad accedere a un indice non valido
     ASSERT_THROW(list.getActivity(5), std::out_of_range);
 }
-//test attivita non esistente
+
+//test ricerca attivita non esistente
+TEST(ToDoListTest, SearchNonExistentActivityByTitle) {
+    Todolist list;
+    list.addActivity(Activity("Do homework", "Math exercises"));
+    list.addActivity(Activity("Wash dishes", "Clean the kitchen"));
+
+    // Ricerca un titolo che non esiste
+    auto results = list.searchActivity("Go shopping");
+
+    // Verifica che il risultato sia vuoto
+    ASSERT_TRUE(results.empty());
+}
+
 // quante attivita da completare
 
 // Test: Salvare la lista su disco
