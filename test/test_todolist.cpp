@@ -3,6 +3,8 @@
 //
 #include "gtest/gtest.h"
 #include "../TodoList.h"
+#include <fstream>
+#include <sstream>
 
 // Test: Aggiungere un'attività alla lista
 TEST(ToDoListTest, AddActivity) {
@@ -101,20 +103,44 @@ TEST(ToDoListTest, CountCompleteActivities) {
 
 // Test: Salvare la lista su disco
 TEST(ToDoListTest, SaveListToDisk) {
-Todolist list;
-Activity activity("Do sport", "Play basketball for 30 minutes");
-list.addActivity(activity);
+    Todolist list;
+    Activity activity("Do sport", "Play basketball for 30 minutes");
+    list.addActivity(activity);
 
-list.saveToDisk("test_list.txt");
-//controllare manualmente il file salvato.
-ASSERT_TRUE(true);   // test automatica
+    // Salva la lista su disco
+    list.saveToDisk("test_list.txt");
+
+    // Verifica se il file è stato creato e contiene il titolo dell'attività
+    std::ifstream file("test_list.txt");
+    ASSERT_TRUE(file.is_open()); // Verifica che il file sia stato aperto
+
+    std::stringstream buffer;
+    buffer << file.rdbuf(); // Legge tutto il contenuto del file
+    std::string fileContents = buffer.str();
+
+    // Controlla che il file contenga il titolo dell'attività
+    ASSERT_NE(fileContents.find("Do sport"), std::string::npos);  // Verifica che il titolo "Do sport" sia nel file
+    ASSERT_NE(fileContents.find("Play basketball for 30 minutes"), std::string::npos);  // Verifica che la descrizione sia nel file
+
+    file.close();  // Chiude il file
 }
 
 // Test: Caricare la lista da disco
 TEST(ToDoListTest, LoadListFromDisk) {
-Todolist list;
-list.loadFromDisk("test_list.txt");
+    Todolist list;
+    Activity activity("Do sport", "Play basketball for 30 minutes");
+    list.addActivity(activity);
 
-ASSERT_EQ(list.getActivityCount(), 1);
-ASSERT_STREQ(list.getActivity(0).getTitle().c_str(), "Do sport");
+    // Salvataggio della lista nel file "test_list.txt"
+    list.saveToDisk("test2_list.txt");
+
+    list.removeActivity(0);
+
+    // Caricamento della lista dal disco
+    list.loadFromDisk("test2_list.txt");
+
+    // Step 5: Verifica che l'attività sia stata correttamente caricata
+    ASSERT_EQ(list.getActivityCount(), 1);  // Dovrebbe esserci 1 attività
+    ASSERT_STREQ(list.getActivity(0).getTitle().c_str(), "Do sport");  // Il titolo dovrebbe essere "Do sport"
+    ASSERT_STREQ(list.getActivity(0).getDescription().c_str(), " Play basketball for 30 minutes");
 }

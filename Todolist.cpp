@@ -61,6 +61,8 @@ void Todolist::saveToDisk(const string& fileName) const{
 
 //download todolist from disk
 void Todolist::loadFromDisk(const string& filename){
+    activity.clear();
+
     //file: read operation
     ifstream file(filename);
 
