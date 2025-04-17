@@ -33,6 +33,13 @@ int main() {
     bool exit = false;
 
     while (!exit) {
+        // Pulizia schermo per ogni nuovo ciclo
+#ifdef _WIN32
+        system("CLS");
+#else
+        system("clear");
+#endif
+
         interface.printMenu();
         int choice;
         cin >> choice;
@@ -41,22 +48,22 @@ int main() {
         switch (choice) {
             case 1:
                 interface.add();
-                break;
+            break;
             case 2:
                 interface.remove();
-                break;
+            break;
             case 3:
                 interface.showActivity();
-                break;
+            break;
             case 4:
                 interface.saveList();
-                break;
+            break;
             case 5:
                 interface.loadList();
-                break;
+            break;
             case 6:
                 interface.changeState();
-                break;
+            break;
             case 7:
                 interface.search();
             break;
@@ -71,12 +78,15 @@ int main() {
             break;
             case 0:
                 exit = true;
-                cout << "Exiting the program..." << endl;
-                break;
+            cout << "Exiting the program..." << endl;
+            break;
             default:
                 cout << "Invalid choice! Please try again." << endl;
-                break;
+            break;
         }
+
+        cout << "\nPress Enter to continue...";
+        cin.get();  // Attesa per evitare che venga subito ripulito di nuovo
     }
     return 0;
 }

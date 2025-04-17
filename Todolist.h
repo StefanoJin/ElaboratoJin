@@ -51,6 +51,8 @@ public:
 
     //count completed activities
     int countCompleteActivities() const;
+
+    bool ModifyActivity(int index, const std::string& newTitle, const std::string& newDescription);
 };
 
 #endif //ELABORATOJIN_TODOLIST_H

@@ -10,18 +10,24 @@ ToDoInterface::ToDoInterface(Todolist &list) : list(list) {}
 
 //interface methods
 void ToDoInterface::printMenu() const{
-    cout << "\n=== TO-DO LIST MENU ===" << endl;
-    cout << "1. Add activity" << endl;
-    cout << "2. Remove activity" << endl;
-    cout << "3. Show activities" << endl;
-    cout << "4. Save list to disk" << endl;
-    cout << "5. Load list from  " << endl;
-    cout << "6. Change state of activity" << endl;
-    cout << "7. Search activity" << endl;
-    cout << "8. Show incomplete activities" << endl;
-    cout << "9. Show number of all activities" << endl;
-    cout << "10. Modify activity" << endl;
-    cout << "0. Exit" << endl;
+    cout << "\n========================================" << endl;
+    cout << "           TO-DO LIST MENU              " << endl;
+    cout << "========================================" << endl;
+    cout << " 1.  Add activity" << endl;
+    cout << " 2.  Remove activity" << endl;
+    cout << " 3.  Show all activities" << endl;
+    cout << " 4.  Save list to disk" << endl;
+    cout << " 5.  Load list from disk" << endl;
+    cout << " 6.  Change activity state" << endl;
+    cout << " 7.  Search for an activity" << endl;
+    cout << " 8.  Show incomplete activities" << endl;
+    cout << " 9.  Show total number of activities" << endl;
+    cout << "10.  Modify an activity" << endl;
+    cout << " 0.  Exit" << endl;
+    cout << "========================================" << endl;
+    cout << "NB: Remember to save your to-do list to" << endl;
+    cout << "    the file before exiting the program!" << endl;
+    cout << "========================================" << endl;
     cout << "Choose an option: ";
 }
 
@@ -50,12 +56,6 @@ void ToDoInterface::showActivity(){
     list.print();
     list.notifyObservers();
 }
-
-//Metodo per google test
-/*void ToDoInterface::saveList(const std::string& fileName){
-    list.saveToDisk(fileName);
-    cout << "List saved successfully to " << fileName << endl;
-}*/
 
 void ToDoInterface::saveList(){
     string fileName;
@@ -119,7 +119,7 @@ void ToDoInterface::ActivityCount() {
     cout << "There are " << list.getActivityCount() << " activities in TODOLIST." << endl;
 }
 
-//modify activity
+//modify activity in todolist
 void ToDoInterface::Modify() {
     list.print();
 
@@ -127,14 +127,10 @@ void ToDoInterface::Modify() {
     cout << "Enter the number of the activity to modify: ";
     cin >> activityNumber;
 
-    // Vefify index
     if (activityNumber < 1 || activityNumber > list.getActivityCount()) {
         cout << "Invalid activity number!" << endl;
         return;
     }
-
-    // Get the activity to modify
-    Activity& act = list.getActivity(activityNumber - 1);
 
     string newTitle, newDescription;
     cout << "Enter the new title: ";
@@ -143,10 +139,10 @@ void ToDoInterface::Modify() {
     cout << "Enter the new description: ";
     getline(cin, newDescription);
 
-    act.setTitle(newTitle);
-    act.setDescription(newDescription);
-
-    cout << "Activity modified successfully!" << endl;
-    list.notifyObservers();
+    if (list.ModifyActivity(activityNumber - 1, newTitle, newDescription)) {
+        cout << "Activity modified successfully!" << endl;
+    } else {
+        cout << "Error modifying activity!" << endl;
+    }
 }
 

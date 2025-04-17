@@ -75,7 +75,7 @@ void Todolist::loadFromDisk(const string& filename){
         }
         file.close();
     }else
-        cerr << "Error - cannot open the file." << endl;
+        cout << "Error - cannot open the file." << endl;
 }
 
 // return activity by index
@@ -118,4 +118,20 @@ int Todolist::countCompleteActivities() const {
         if (act.isCompleted()) count++;
     }
     return count;
+}
+
+//modify activity
+bool Todolist::ModifyActivity(int index, const std::string& newTitle, const std::string& newDescription) {
+    if (index < 0 || index >= activity.size()) {
+        return false;
+    }
+
+    auto it = activity.begin();
+    std::advance(it, index);  // Vai al giusto elemento
+
+    it->setTitle(newTitle);
+    it->setDescription(newDescription);
+
+    notifyObservers();  // se serve
+    return true;
 }
