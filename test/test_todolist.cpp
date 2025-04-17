@@ -144,3 +144,24 @@ TEST(ToDoListTest, LoadListFromDisk) {
     ASSERT_STREQ(list.getActivity(0).getTitle().c_str(), "Do sport");  // Il titolo dovrebbe essere "Do sport"
     ASSERT_STREQ(list.getActivity(0).getDescription().c_str(), " Play basketball for 30 minutes");
 }
+
+//Test: Modidyactivity
+TEST(ToDoListTest, ModifyActivity) {
+    Todolist list;
+
+    Activity activity("Study", "Study math for 1 hour");
+    list.addActivity(activity);
+
+    // Verifico che l'attività iniziale
+    ASSERT_EQ(list.getActivityCount(), 1);
+    ASSERT_EQ(list.getActivity(0).getTitle(), "Study");
+    ASSERT_EQ(list.getActivity(0).getDescription(), "Study math for 1 hour");
+
+    // Modify
+    bool success = list.ModifyActivity(0, "Study Physics", "Study electromagnetism for 2 hours");
+
+    // Verifica modificato
+    ASSERT_TRUE(success);
+    ASSERT_EQ(list.getActivity(0).getTitle(), "Study Physics");
+    ASSERT_EQ(list.getActivity(0).getDescription(), "Study electromagnetism for 2 hours");
+}
